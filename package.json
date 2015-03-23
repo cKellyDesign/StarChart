@@ -1,0 +1,17 @@
+{
+  "name": "StarChart",
+  "version": "0.1.0",
+  "description": "This app converts three dimensional star positions into two dimensional star charts.",
+  "main": "StarServer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Conor Kelly",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.12.3",
+    "grunt": "^0.4.5",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-express-server": "^0.4.19"
+  }
+}
