@@ -5,15 +5,23 @@
 <!--[if gt IE 9]><!--><html lang="en"><!--<![endif]-->
 <head>
 <title>StarChart</title>
-<link rel="icon" type="image/png" href="/images/cKellyDesignLogo-01.png">
+<link rel="icon" type="image/png" href="images/cKellyDesignLogo-01.png">
+<link type="text/css" rel="stylesheet" href="chartScripts/nebularAttributions.css">
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
 <script src="chartScripts/StarChart.js"></script>
 </head>
 <body ng-app="starChart">
 
-<h1>hello World</h1>
+<h1>Star Chart! :D</h1>
 <div ng-controller="FTL_Drive">
-  <p>Destination: {{galaxy.name}}</p>
+  <span>Stars of the {{galaxy.name}}</span>
+  <ul class="galaxy">
+    <li ng-repeat="star in galaxy.stars" class="star" style="left:{{star.x * 100}}%;top:{{star.y * 100}}%;" ng-click="star.display = !star.display">
+      <article class="star_tooltip" ng-show="star.display">
+        <h1>{{star.name}}</h1>
+      </artilce>
+    </li>
+  </ul>
 </div>
 </body>
 </html>
