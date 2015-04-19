@@ -5,12 +5,14 @@
 <!--[if gt IE 9]><!--><html lang="en"><!--<![endif]-->
 <head>
 <title>StarChart</title>
-
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+<script src="chartScripts/StarChart.js"></script>
 </head>
-<body>
+<body ng-app="starChart">
 
-<h1>hello world</h1>
-
-
+<h1>hello World</h1>
+<div ng-controller="FTL_Drive">
+  <p>Destination: {{galaxy.name}}</p>
+</div>
 </body>
 </html>
