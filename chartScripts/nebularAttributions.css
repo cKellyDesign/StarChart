@@ -14,7 +14,7 @@
 }
 .star_tooltip {
   position: relative;
-  display: block;
+  display: inline-block;
   background-color: white;
 }
 
