@@ -11,6 +11,7 @@ StarServer.set('port', '8089');
 StarServer.set('case sensitive routing', false);
 
 StarServer.use('/chartScripts', express.static(path.join(__dirname, '/chartScripts')));
+StarServer.use('/images', express.static(path.join(__dirname, '/images')));
 
 
 if ( StarServer.get('env') === 'development' ) {
