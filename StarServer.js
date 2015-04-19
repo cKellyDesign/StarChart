@@ -14,9 +14,9 @@ StarServer.use('/chartScripts', express.static(path.join(__dirname, '/chartScrip
 
 
 if ( StarServer.get('env') === 'development' ) {
-  var MicrowaveBackground = StarServer.listen(StarServer.get('port'), function(){
+  var MicrowaveBackground = StarServer.listen(process.env.PORT || StarServer.get('port'), function(){
     console.log("StarServer : FTL Drives Spooled to Port " + MicrowaveBackground.address().port);
   });
 } else {
-  var MicrowaveBackground = StarServer.listen(StarServer.get('port'));
+  var MicrowaveBackground = StarServer.listen(process.env.PORT || StarServer.get('port'));
 }
