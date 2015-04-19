@@ -1,0 +1,6 @@
+{
+  "name": "cKellyDesign StarChart",
+  "description": "A barebones app to convert three dimensional star positions to a 2 dimensional \"Star Chart\" served via Angular.js. Eventual a responsive FE will be deployed!",
+  "repository": "https://github.com/cKellyDesign/StarChart",
+  "keywords": ["node", "express", "angularjs"]
+}
