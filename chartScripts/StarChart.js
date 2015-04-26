@@ -1,3 +1,8 @@
+var underscore = angular.module('underscore', []);
+underscore.factory('_', function(){
+  return window._;
+});
+
 var StarChart = angular.module('starChart', []);
 
 StarChart.run(function ($rootScope){
