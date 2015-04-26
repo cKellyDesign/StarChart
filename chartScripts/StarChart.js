@@ -26,23 +26,30 @@ StarChart.controller('FTL_Drive', function($scope){
 
       var thisStar = star.split(',');
       return {
-        StarID: thisStar[0],
-        Hip: thisStar[1],
-        HD: thisStar[2],
-        HR: (thisStar[3] === '' || thisStar[3] === ' ') ? null : thisStar[3],
-        Gliese: (thisStar[4] === '' || thisStar[4] === ' ') ? null : thisStar[4],
-        BayerFlamsteed: (thisStar[5] === '' || thisStar[5] === ' ') ? null : thisStar[5],
-        ProperName: (thisStar[6] === '' || thisStar[6] === ' ') ? null : thisStar[6],
-        RA: thisStar[7],
-        Dec: thisStar[8],
-        Distance: thisStar[9],
-        Mag: thisStar[10],
-        AbsMag: thisStar[11],
-        Spectrum: thisStar[12] && thisStar[12].replace(/ /g,''),
-        ColorIndex: thisStar[13]
+        StarID: starAttrScrubber(thisStar[0]),
+        Hip: starAttrScrubber(thisStar[1]),
+        HD: starAttrScrubber(thisStar[2]),
+        HR: starAttrScrubber(thisStar[3]),
+        Gliese: starAttrScrubber(thisStar[4]),
+        BayerFlamsteed: starAttrScrubber(thisStar[5]),
+        ProperName: starAttrScrubber(thisStar[6]),
+        RA: starAttrScrubber(thisStar[7]),
+        Dec: starAttrScrubber(thisStar[8]),
+        Distance: starAttrScrubber(thisStar[9]),
+        Mag: starAttrScrubber(thisStar[10]),
+        AbsMag: starAttrScrubber(thisStar[11]),
+        Spectrum: starAttrScrubber(thisStar[12], true),
+        ColorIndex: starAttrScrubber(thisStar[13])
       };
     });
   };
+
+  function starAttrScrubber (str, cleanSpaces) {
+    if (cleanSpaces) {
+      str = str && str.replace(/ /g, '');
+    }
+    return (str === '' || str === ' ' || str === '          ') ? null : str;
+  }
   
   $scope.JSON_output = "This will call func to return JSON output string.";
 
