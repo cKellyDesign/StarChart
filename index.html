@@ -8,20 +8,42 @@
 <link rel="icon" type="image/png" href="images/cKellyDesignLogo-01.png">
 <link type="text/css" rel="stylesheet" href="chartScripts/nebularAttributions.css">
 <script src="chartScripts/angular.min.js"></script>
+<script src="chartScripts/underscore.js"></script>
 <script src="chartScripts/StarChart.js"></script>
 </head>
 <body ng-app="starChart">
 
 <h1>Star Chart! :D</h1>
 <div ng-controller="FTL_Drive">
-  <span>Stars of the {{galaxy.name}}</span>
+
+
+  <div ng-show="false">
+  <h3>CSV Input</h3>
+  <textarea id="CSV_input" ng-model="CSV_input" ng-change="JSON_output = ConstellationAssembler(CSV_input)">{{CSV_input}}</textarea>
+  <h3>JSON Output</h3>
+  <textarea id="JSON_output" readonly>{{JSON_output}}</textarea>
+
+  <h3>Stars of the {{galaxy.name}}</h3>
+
   <ul class="galaxy">
-    <li ng-repeat="star in galaxy.stars" class="star" style="left:{{star.x * 100}}%;top:{{star.y * 100}}%;" ng-click="star.display = !star.display">
+    <li ng-repeat="star in galaxy.stars" class="star" style="left:{{star.x * 100}}%;top:{{star.y * 100}}%;" ng-mouseenter="star.display = true" ng-mouseleave="star.display = false">
       <article class="star_tooltip" ng-show="star.display">
         <h1>{{star.name}}</h1>
       </artilce>
     </li>
   </ul>
+  </div>
+
+  <h3>Cluster Count: {{cluster.count}}</h3>
+  <input type="text" ng-model="cluster.count" ng-change="cluster.stars = starForge(cluster.count)">
+  
+  <ul class="galaxy Andromeda" ng-show="true" ng-init="cluster.stars = starForge(cluster.count)" ng-model="cluster.stars">
+    <li class="star" ng-repeat="star in cluster.stars" style="left:{{star.x * 100}}%;top:{{star.y * 100}}%;"></li>
+  </ul>
+  <p ng-show="false">Cluster Stars: {{cluster.stars}}</p>
+  
+
+
 </div>
 </body>
 </html>
