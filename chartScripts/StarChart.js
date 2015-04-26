@@ -6,6 +6,22 @@ StarChart.run(function ($rootScope){
 });
 
 StarChart.controller('FTL_Drive', function($scope){
+
+
+  $scope.cluster = {
+    count: 10,
+    stars: []
+  };
+
+  $scope.starForge = function(starCount) {
+    starCount = starCount || ( Math.random() * 100 );
+    var starArray = [];
+    for (i = 0; i < starCount; i++) {
+      starArray.push({ "x": Math.random(), "y": Math.random() });
+    }
+    return starArray;
+  }
+
   $scope.galaxy = {
     name: "Milky Way",
     stars: [

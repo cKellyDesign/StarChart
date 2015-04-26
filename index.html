@@ -14,7 +14,8 @@
 
 <h1>Star Chart! :D</h1>
 <div ng-controller="FTL_Drive">
-  <span>Stars of the {{galaxy.name}}</span>
+  <h3>Stars of the {{galaxy.name}}</h3>
+
   <ul class="galaxy">
     <li ng-repeat="star in galaxy.stars" class="star" style="left:{{star.x * 100}}%;top:{{star.y * 100}}%;" ng-mouseenter="star.display = true" ng-mouseleave="star.display = false">
       <article class="star_tooltip" ng-show="star.display">
@@ -22,6 +23,16 @@
       </artilce>
     </li>
   </ul>
+
+
+  <h3>Cluster Count: {{cluster.count}}</h3>
+  <input type="text" ng-model="cluster.count" ng-change="cluster.stars = starForge(cluster.count)">
+  
+  <ul class="galaxy Andromeda" ng-show="true" ng-init="cluster.stars = starForge(cluster.count)" ng-model="cluster.stars">
+    <li class="star" ng-repeat="star in cluster.stars" style="left:{{star.x * 100}}%;top:{{star.y * 100}}%;"></li>
+  </ul>
+  <p ng-show="false">Cluster Stars: {{cluster.stars}}</p>
+  
 </div>
 </body>
 </html>
