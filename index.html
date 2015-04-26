@@ -15,6 +15,19 @@
 
 <h1>Star Chart! :D</h1>
 <div ng-controller="FTL_Drive">
+
+
+  <h3>CSV Input</h3>
+  <textarea id="CSV_input" ng-model="CSV_input" ng-change="JSON_output = ConstellationAssembler(CSV_input)">{{CSV_input}}</textarea>
+  <h3>JSON Output</h3>
+  <textarea id="JSON_output" readonly>{{JSON_output}}</textarea>
+
+
+
+
+
+
+
   <h3>Stars of the {{galaxy.name}}</h3>
 
   <ul class="galaxy">
@@ -33,7 +46,7 @@
     <li class="star" ng-repeat="star in cluster.stars" style="left:{{star.x * 100}}%;top:{{star.y * 100}}%;"></li>
   </ul>
   <p ng-show="false">Cluster Stars: {{cluster.stars}}</p>
-  
+
 </div>
 </body>
 </html>

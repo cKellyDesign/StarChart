@@ -13,6 +13,42 @@ StarChart.run(function ($rootScope){
 StarChart.controller('FTL_Drive', function($scope){
 
 
+  $scope.CSV_input = "Enter CSV Code here";
+
+  $scope.ConstellationAssembler = function (universe) {
+    if (!universe) {
+      return "Please input CSV!!";
+    }
+    var thisUniverse = universe.split('\n');
+
+    return _.map(thisUniverse, function(star){
+      if ( !star || star.indexOf(',') < 1 ) { return false; }
+
+      var thisStar = star.split(',');
+      return {
+        StarID: thisStar[0],
+        Hip: thisStar[1],
+        HD: thisStar[2],
+        HR: (thisStar[3] === '' || thisStar[3] === ' ') ? null : thisStar[3],
+        Gliese: (thisStar[4] === '' || thisStar[4] === ' ') ? null : thisStar[4],
+        BayerFlamsteed: (thisStar[5] === '' || thisStar[5] === ' ') ? null : thisStar[5],
+        ProperName: (thisStar[6] === '' || thisStar[6] === ' ') ? null : thisStar[6],
+        RA: thisStar[7],
+        Dec: thisStar[8],
+        Distance: thisStar[9],
+        Mag: thisStar[10],
+        AbsMag: thisStar[11],
+        Spectrum: thisStar[12] && thisStar[12].replace(/ /g,''),
+        ColorIndex: thisStar[13]
+      };
+    });
+  };
+  
+  $scope.JSON_output = "This will call func to return JSON output string.";
+
+
+
+
   $scope.cluster = {
     count: 10,
     stars: []
